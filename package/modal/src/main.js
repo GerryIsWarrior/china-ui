@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import modalVue from './main.vue';
 
+// 引入自定义指令
+import {opacity} from '../../../global/instructions'
+Vue.directive(opacity.name,{
+  update: opacity.bind
+})
+
 // 缓存用户存储的回调
 let userFun = {}
 

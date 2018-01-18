@@ -1,5 +1,10 @@
-import Alert from './messageBox/index'
+import MessageBox from './messageBox/index'
 import Modal from './modal/index'
+
+// 引入全局错误信息，并且将错误信息注入全局
+import globalInfo from '../global/errorInfo'
+
+global.$ui = globalInfo
 
 const components = [
   // testT,
@@ -14,6 +19,9 @@ const install = function (Vue, opts = {}) {
 export default {
   install,
 }
+
+const Alert = MessageBox.alert
+
 
 export {
   Alert,

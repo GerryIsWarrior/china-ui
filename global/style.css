@@ -1,0 +1,103 @@
+html {
+  font-size: 62.5%;
+}
+
+body {font-size: 1.4rem;}
+
+
+.ui-width-100{
+  width: 100%;
+}
+
+.ui-width-50{
+  width: 50%;
+}
+/*主题背景颜色*/
+.theme-color{
+  background-color: #eff0f1;
+}
+/*主题字体颜色*/
+.theme-font-color{
+  color: #FA5555;
+}
+/*边框颜色*/
+.theme-border-color{
+  border-color: rgb(253,187,187);
+}
+
+/*动画效果*/
+.transition-opacity{
+  transition: opacity 2s;
+}
+
+.transition-opacity-modal{
+  transition: opacity 0.1s;
+  opacity: 0.7;
+}
+
+/*模态框的动画行为*/
+.animation-modal-enter{
+  animation:modal-in 0.25s;
+  animation-fill-mode : forwards;
+}
+.animation-modal-leave{
+  animation:modal-out 0.25s;
+  animation-fill-mode : forwards;
+}
+
+@keyframes modal-in
+{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+    z-index: 100;
+  }
+}
+
+@keyframes modal-out
+{
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+    z-index: -100;
+  }
+}
+
+
+/*alert弹出框的动画行为*/
+.animation-alert-enter{
+  animation:alert-in 0.25s;
+  animation-fill-mode : forwards;
+  animation-delay:0.25s;
+}
+.animation-alert-leave{
+  animation:alert-out 0.25s;
+  animation-fill-mode : forwards;
+}
+
+@keyframes alert-in
+{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    z-index: 101;
+  }
+}
+
+@keyframes alert-out
+{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -99;
+    display: none;
+  }
+}
