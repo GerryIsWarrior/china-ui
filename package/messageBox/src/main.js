@@ -5,12 +5,13 @@ import {is} from '../../../global/util'
 
 // 引入自定义指令
 import {opacity} from '../../../global/instructions'
-Vue.directive(opacity.name,{
+
+Vue.directive(opacity.name, {
   update: opacity.bind
 })
 
 // 缓存用户存储的回调
-let userFun = {}
+var userFun = {}
 
 // 监控组件内部变动，内容分发
 const funChange = function (instruction) {
@@ -30,7 +31,7 @@ const funChange = function (instruction) {
 
 // 初始化参数
 const initParam = {
-  visible:true,
+  visible: true,
   isAlert: false,
   titleInfo: '提示',
   contentInfo: '',
@@ -103,43 +104,14 @@ MessageBox.alert = function () {
 
 /*
 *   方法说明
-*   全量参数：title,message,callback
-*     1. 1个参数，为消息体
-*     2. 2个参数，分别是title和message
-*     3. 3个参数，全量回调
 * */
-MessageBox.confirm = function () {
-  const param = arguments.length
+MessageBox.confirm = function (option) {
   let temp = {}
-  switch (param) {
-    case 0 :
-      console.warn(global.$ui.warn.noMessage)
-      break
-    case 1:
-      // if
-      temp['isAlert'] = false
-      temp['contentInfo'] = arguments[0]
-      break
-    case 2:
-      temp['isAlert'] = false
-      temp['titleInfo'] = arguments[0]
-      temp['contentInfo'] = arguments[1]
-      userFun['sure'] = arguments[2]
-      break
-    case 3:
-      temp['isAlert'] = false
-      temp['titleInfo'] = arguments[0]
-      temp['contentInfo'] = arguments[1]
-      userFun['sure'] = arguments[2]
-      break
-    case 4:
-      temp['isAlert'] = false
-      temp['titleInfo'] = arguments[0]
-      temp['contentInfo'] = arguments[1]
-      userFun['sure'] = arguments[2]
-      userFun['cancel'] = arguments[3]
-      break
-  }
+  userFun = {}
+  temp['isAlert'] = false
+  temp = option
+  if (option.call_sure) userFun['sure'] = option.call_sure
+  if (option.call_cancel) userFun['cancel'] = option.call_sure
   Modal.show(function () {
     MessageBox(temp)
   })

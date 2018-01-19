@@ -60,9 +60,11 @@ body {font-size: 1.4rem;}
 {
   from {
     opacity: 0.7;
+    transform: translateY(0);
   }
   to {
     opacity: 0;
+    transform: translateY(5rem);
     z-index: -100;
   }
 }
@@ -70,7 +72,8 @@ body {font-size: 1.4rem;}
 
 /*alert弹出框的动画行为*/
 .animation-alert-enter{
-  animation:alert-in 0.25s;
+  will-change: left,right;
+  animation:alert-in 1s;
   animation-fill-mode : forwards;
   animation-delay:0.25s;
 }
@@ -81,11 +84,17 @@ body {font-size: 1.4rem;}
 
 @keyframes alert-in
 {
-  from {
-    opacity: 0;
+  0% {
+    transform: translateX(0);
   }
-  to {
-    opacity: 1;
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
     z-index: 101;
   }
 }
@@ -98,6 +107,5 @@ body {font-size: 1.4rem;}
   to {
     opacity: 0;
     z-index: -99;
-    display: none;
   }
 }

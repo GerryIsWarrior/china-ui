@@ -21,9 +21,10 @@ export default {
 }
 
 const Alert = MessageBox.alert
-
+const Confirm = MessageBox.confirm
 
 export {
   Alert,
+  Confirm,
   Modal
 }

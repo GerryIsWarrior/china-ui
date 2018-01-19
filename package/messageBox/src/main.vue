@@ -42,11 +42,11 @@
     methods: {
       click_sure() {
         this.visible = false
-        this.callback('cancel')
+        this.callback('sure')
       },
       click_cancel() {
         this.visible = false
-        this.callback('sure')
+        this.callback('cancel')
       }
     }
   }
@@ -63,7 +63,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
   }
 
   .alert {

@@ -9,32 +9,42 @@
 
 <script>
 
-  import {Alert} from '../package/index'
+  import {Alert, Confirm} from '../package/index'
 
-export default {
-  name: 'app',
-  mounted(){
-    Alert({
-      titleInfo: '提示123',
-      contentInfo: '我试测试测试的，别打我',
-      sureText: '走',
-    })
-  },
-  methods:{
-    testData(){
-      Alert('我在你心里')
+  export default {
+    name: 'app',
+    mounted() {
+    },
+    methods: {
+      testData() {
+        Confirm({
+          titleInfo: '提示',
+          contentInfo: 'wdawdawdaw',
+          cancelText: 'asdasdasda',
+          sureText: 'asdasdsa',
+          call_sure:function () {
+//            alert('sure')
+          },
+          call_cancel:function () {
+//            alert('cancel')
+          }
+        })
+      }
     }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{
+    overflow-x: hidden;
+  }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+
+  }
 </style>
