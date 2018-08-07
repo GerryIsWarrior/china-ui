@@ -19,6 +19,17 @@ let opacity = {
   }
 }
 
+let jitter = {
+  name: 'jitter',
+  test:{
+    componentUpdated: function (el, binding) {
+      debugger
+      console.warn(el)
+    }
+  }
+}
+
 export {
-  opacity
+  opacity,
+  jitter
 }

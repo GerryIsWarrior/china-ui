@@ -3,7 +3,14 @@
     <!--<img src="./assets/logo.png">-->
     <!--<show-test></show-test>-->
     <router-view/>
-    <button @click="testData">测试数据</button>
+    <!--<button @click="testData" v-jitter="">测试数据</button>-->
+    <div>asdasdasd</div>
+    <div style="font-size: 14px" v-html="TT"></div>
+    <table>
+      <tr>
+        <td>{{ TT }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -13,6 +20,11 @@
 
   export default {
     name: 'app',
+    data(){
+      return {
+        TT:"修改前：你<br/>&emsp;&emsp;&emsp;&emsp;猜"
+      }
+    },
     mounted() {
     },
     methods: {
@@ -29,6 +41,9 @@
 //            alert('cancel')
           }
         })
+      },
+      aaaaa(){
+        console.warn('点击成功！！')
       }
     }
   }

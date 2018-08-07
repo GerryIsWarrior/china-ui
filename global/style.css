@@ -39,6 +39,7 @@ body {font-size: 1.4rem;}
 .animation-modal-enter{
   animation:modal-in 0.25s;
   animation-fill-mode : forwards;
+  opacity: 0;
 }
 .animation-modal-leave{
   animation:modal-out 0.25s;
